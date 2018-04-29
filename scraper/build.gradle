@@ -6,13 +6,13 @@
  * user guide available at https://docs.gradle.org/4.7/userguide/java_library_plugin.html
  */
 
-plugins {
-    // Apply the java-library plugin to add support for Java Library
-    id 'java-library'
-    id 'org.jetbrains.kotlin.jvm' version '1.2.40'
-}
+apply plugin: 'java-library'
 
 dependencies {
+    Map<String, String> dependencies = rootProject.ext.commonDependencies
+
+    compile dependencies.kotlinStdLib
+
     // This dependency is exported to consumers, that is to say found on their compile classpath.
     api 'org.apache.commons:commons-math3:3.6.1'
 
@@ -20,7 +20,7 @@ dependencies {
     implementation 'com.google.guava:guava:23.0'
 
     // Use JUnit test framework
-    testImplementation 'junit:junit:4.12'
+    testImplementation dependencies.jUnit
 }
 
 // In this section you declare where to find the dependencies of your project

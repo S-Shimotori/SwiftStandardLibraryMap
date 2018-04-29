@@ -1,0 +1,9 @@
+ext {
+    kotlin_version = '1.2.40'
+    jUnit_version = '4.12'
+
+    commonDependencies = [
+            kotlinStdLib: "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version",
+            jUnit: "junit:junit:$jUnit_version"
+    ]
+}
