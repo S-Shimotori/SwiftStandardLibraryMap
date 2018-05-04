@@ -20,7 +20,10 @@ dependencies {
     Map<String, String> dependencies = rootProject.ext.commonDependencies
 
 
+    implementation 'org.jsoup:jsoup:1.11.3'
 
+    implementation dependencies.kotlinLogging
+    implementation dependencies.logbackClassic
 
     testImplementation dependencies.jUnit
 }

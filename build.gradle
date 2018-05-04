@@ -1,9 +1,13 @@
 ext {
     kotlin_version = '1.2.41'
     jUnit_version = '4.12'
+    kotlinLogging_version = '1.5.4'
+    logbackClassic_version = '1.2.3'
 
     commonDependencies = [
             kotlinStdLib: "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version",
+            kotlinLogging: "io.github.microutils:kotlin-logging:$kotlinLogging_version",
+            logbackClassic: "ch.qos.logback:logback-classic:$logbackClassic_version",
             jUnit: "junit:junit:$jUnit_version"
     ]
 }
