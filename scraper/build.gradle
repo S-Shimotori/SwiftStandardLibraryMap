@@ -1,9 +1,24 @@
 apply plugin: 'java-library'
+apply plugin: 'kotlin'
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$rootProject.ext.kotlin_version"
+    }
+}
+
+sourceSets {
+    main.java.srcDirs += 'src/main/kotlin'
+    test.java.srcDirs += 'src/test/kotlin'
+}
 
 dependencies {
     Map<String, String> dependencies = rootProject.ext.commonDependencies
 
-    compile dependencies.kotlinStdLib
 
 
 
