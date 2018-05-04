@@ -19,6 +19,8 @@ sourceSets {
 dependencies {
     Map<String, String> dependencies = rootProject.ext.commonDependencies
 
+    implementation 'com.squareup.okhttp3:okhttp:3.10.0'
+    implementation 'com.nytimes.android:store-kotlin3:3.0.1'
 
     implementation 'org.jsoup:jsoup:1.11.3'
 
@@ -26,6 +28,7 @@ dependencies {
     implementation dependencies.logbackClassic
 
     testImplementation dependencies.jUnit
+    testImplementation 'com.squareup.okhttp:mockwebserver:2.7.5'
 }
 
 repositories {
