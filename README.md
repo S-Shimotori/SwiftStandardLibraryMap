@@ -15,6 +15,21 @@ Draw type relations in Swift Standard Library
         * [Logback](https://logback.qos.ch/)
 * Use Graph DB
     * [Neo4j](https://neo4j.com/)
+        * [library/neo4j - Docker Hub](https://hub.docker.com/_/neo4j/)
 * Use cache
     * [Store](https://github.com/NYTimes/Store)
 
+### Neo4j
+
+```sh
+docker run \
+    --publish=7474:7474 --publish=7687:7687 \
+    --volume=$HOME/neo4j/data:/data \
+    --volume=$HOME/neo4j/logs:/logs \
+    neo4j
+```
+
+then access
+
+* http://localhost:7474/
+* bolt://localhost:7687/
