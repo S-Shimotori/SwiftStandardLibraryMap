@@ -33,4 +33,22 @@ public class Protocol implements Entity, AbstractType {
     @Relationship(type="ConformsTo", direction=Relationship.INCOMING)
     Set<ConformsTo> conformsToSet;
 
+    /**
+     * relationship describing inherits from
+     */
+    @Relationship(type="InheritsFrom")
+    Set<InheritsFrom> inheritsSet;
+
+    /**
+     * relationship describing inherited
+     */
+    @Relationship(type="InheritsFrom", direction=Relationship.INCOMING)
+    Set<InheritsFrom> inheritedSet;
+
+    /**
+     * relationship describing alias
+     */
+    @Relationship(type="Alias", direction=Relationship.INCOMING)
+    Set<Alias> aliasSet;
+
 }
