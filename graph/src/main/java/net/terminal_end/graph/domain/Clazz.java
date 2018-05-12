@@ -3,16 +3,19 @@ package net.terminal_end.graph.domain;
 
 import lombok.Builder;
 import lombok.Getter;
+import lombok.Setter;
 import org.neo4j.ogm.annotation.GeneratedValue;
 import org.neo4j.ogm.annotation.Id;
 import org.neo4j.ogm.annotation.NodeEntity;
 import org.neo4j.ogm.annotation.Relationship;
 
+import java.util.HashSet;
 import java.util.Set;
 
 @NodeEntity
 @Builder
 @Getter
+@Setter
 public class Clazz implements Entity, ConcreteType {
 
     /**
@@ -20,17 +23,18 @@ public class Clazz implements Entity, ConcreteType {
      */
     @Id
     @GeneratedValue
-    Long id;
+    private Long id;
 
     /**
      * type name
      */
-    String name;
+    private String name;
 
     /**
      * relationship describing conforming to
      */
+    @Builder.Default
     @Relationship(type=Neo4jRelationshipType.CONFORMS_TO)
-    Set<ConformsTo> conformsToSet;
+    private Set<ConformsTo> conformsToSet = new HashSet<>();
 
 }

@@ -1,7 +1,7 @@
 package net.terminal_end.graph.domain;
 
 
-interface ConcreteType {
+public interface ConcreteType {
 
     /**
      * get type name

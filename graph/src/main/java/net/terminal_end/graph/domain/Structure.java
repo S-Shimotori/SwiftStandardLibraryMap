@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Getter;
 import org.neo4j.ogm.annotation.*;
 
+import java.util.HashSet;
 import java.util.Set;
 
 @NodeEntity
@@ -17,17 +18,18 @@ public class Structure implements Entity, ConcreteType {
      */
     @Id
     @GeneratedValue
-    Long id;
+    private Long id;
 
     /**
      * type name
      */
-    String name;
+    private String name;
 
     /**
      * relationship describing conforming to
      */
+    @Builder.Default
     @Relationship(type=Neo4jRelationshipType.CONFORMS_TO)
-    Set<ConformsTo> conformsToSet;
+    private Set<ConformsTo> conformsToSet = new HashSet<>();
 
 }

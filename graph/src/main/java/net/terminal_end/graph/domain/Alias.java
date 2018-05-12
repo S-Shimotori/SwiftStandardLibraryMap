@@ -8,25 +8,25 @@ import org.neo4j.ogm.annotation.*;
 @RelationshipEntity(type=Neo4jRelationshipType.ALIAS)
 @Builder
 @Getter
-class Alias {
+public class Alias {
 
     /**
      * id for Neo4j
      */
     @Id
     @GeneratedValue
-    Long id;
+    private Long id;
 
     /**
      * which type aliases
      */
     @StartNode
-    Entity entity;
+    private Entity entity;
 
     /**
      * which type is aliased
      */
     @EndNode
-    TypeAlias typeAlias;
+    private TypeAlias typeAlias;
 
 }

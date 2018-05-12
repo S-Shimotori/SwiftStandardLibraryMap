@@ -1,7 +1,7 @@
 package net.terminal_end.graph.domain;
 
 
-interface AbstractType {
+public interface AbstractType {
 
     /**
      * get type name

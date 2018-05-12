@@ -15,18 +15,18 @@ public class InheritsFrom {
      */
     @Id
     @GeneratedValue
-    Long id;
+    private Long id;
 
     /**
      * which type inherits from
      */
     @StartNode
-    AbstractType abstractTypeInherits;
+    private AbstractType abstractTypeInherits;
 
     /**
      * which type is adopted by
      */
     @EndNode
-    AbstractType abstractTypeAdopted;
+    private AbstractType abstractTypeAdopted;
 
 }

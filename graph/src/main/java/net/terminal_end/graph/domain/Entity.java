@@ -9,6 +9,6 @@ public interface Entity {
      *
      * @return id
      */
-    public Long getId();
+    Long getId();
 
 }
