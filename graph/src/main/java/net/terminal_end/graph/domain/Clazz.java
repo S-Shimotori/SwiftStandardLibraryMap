@@ -13,7 +13,7 @@ import java.util.Set;
 @NodeEntity
 @Builder
 @Getter
-public class Type {
+public class Clazz implements Entity, ConcreteType {
 
     /**
      * id for Neo4j

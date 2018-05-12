@@ -21,12 +21,12 @@ class ConformsTo {
      * which type conforms to
      */
     @StartNode
-    Type concreteType;
+    ConcreteType concreteType;
 
     /**
      * which type is adopted by
      */
     @EndNode
-    Type abstractType;
+    AbstractType abstractType;
 
 }
