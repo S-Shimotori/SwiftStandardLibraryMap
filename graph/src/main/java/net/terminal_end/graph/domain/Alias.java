@@ -5,7 +5,7 @@ import lombok.Builder;
 import lombok.Getter;
 import org.neo4j.ogm.annotation.*;
 
-@RelationshipEntity(type="Alias")
+@RelationshipEntity(type=Neo4jRelationshipType.ALIAS)
 @Builder
 @Getter
 class Alias {

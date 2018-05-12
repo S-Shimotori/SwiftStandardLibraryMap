@@ -30,7 +30,7 @@ public class Clazz implements Entity, ConcreteType {
     /**
      * relationship describing conforming to
      */
-    @Relationship(type="ConformsTo")
+    @Relationship(type=Neo4jRelationshipType.CONFORMS_TO)
     Set<ConformsTo> conformsToSet;
 
 }

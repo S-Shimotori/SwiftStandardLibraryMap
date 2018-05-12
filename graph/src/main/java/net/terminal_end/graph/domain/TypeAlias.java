@@ -30,6 +30,6 @@ public class TypeAlias implements Entity {
     /**
      * relationship describing alias
      */
-    @Relationship(type="Alias")
+    @Relationship(type=Neo4jRelationshipType.ALIAS)
     Set<Alias> aliasSet;
 }

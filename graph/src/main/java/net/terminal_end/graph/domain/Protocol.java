@@ -30,25 +30,25 @@ public class Protocol implements Entity, AbstractType {
     /**
      * relationship describing adopted by
      */
-    @Relationship(type="ConformsTo", direction=Relationship.INCOMING)
+    @Relationship(type=Neo4jRelationshipType.CONFORMS_TO, direction=Relationship.INCOMING)
     Set<ConformsTo> conformsToSet;
 
     /**
      * relationship describing inherits from
      */
-    @Relationship(type="InheritsFrom")
+    @Relationship(type=Neo4jRelationshipType.INHERITS_FROM)
     Set<InheritsFrom> inheritsSet;
 
     /**
      * relationship describing inherited
      */
-    @Relationship(type="InheritsFrom", direction=Relationship.INCOMING)
+    @Relationship(type=Neo4jRelationshipType.INHERITS_FROM, direction=Relationship.INCOMING)
     Set<InheritsFrom> inheritedSet;
 
     /**
      * relationship describing alias
      */
-    @Relationship(type="Alias", direction=Relationship.INCOMING)
+    @Relationship(type=Neo4jRelationshipType.ALIAS, direction=Relationship.INCOMING)
     Set<Alias> aliasSet;
 
 }

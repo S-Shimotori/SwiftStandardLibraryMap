@@ -5,7 +5,7 @@ import lombok.Builder;
 import lombok.Getter;
 import org.neo4j.ogm.annotation.*;
 
-@RelationshipEntity(type="InheritsFrom")
+@RelationshipEntity(type=Neo4jRelationshipType.INHERITS_FROM)
 @Builder
 @Getter
 public class InheritsFrom {
