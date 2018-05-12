@@ -12,7 +12,7 @@ abstract class GenericService<T: Entity>: Service<T> {
         private const val DEPTH_ENTITY = 1
     }
 
-    private val session = Neo4jSessionFactory.instance.getNeo4jSession()
+    private val session = Neo4jSessionFactory.default.getNeo4jSession()
 
     private val logger = KotlinLogging.logger {}
 
