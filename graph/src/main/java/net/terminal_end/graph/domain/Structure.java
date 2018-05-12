@@ -3,6 +3,7 @@ package net.terminal_end.graph.domain;
 
 import lombok.Builder;
 import lombok.Getter;
+import lombok.Setter;
 import org.neo4j.ogm.annotation.*;
 
 import java.util.HashSet;
@@ -11,6 +12,7 @@ import java.util.Set;
 @NodeEntity
 @Builder
 @Getter
+@Setter
 public class Structure implements Entity, ConcreteType {
 
     /**

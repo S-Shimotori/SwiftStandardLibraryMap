@@ -3,6 +3,7 @@ package net.terminal_end.graph.domain;
 
 import lombok.Builder;
 import lombok.Getter;
+import lombok.Setter;
 import org.neo4j.ogm.annotation.GeneratedValue;
 import org.neo4j.ogm.annotation.Id;
 import org.neo4j.ogm.annotation.NodeEntity;
@@ -13,6 +14,7 @@ import java.util.Set;
 
 @NodeEntity
 @Builder
+@Setter
 @Getter
 public class Enumeration implements Entity, ConcreteType {
 
