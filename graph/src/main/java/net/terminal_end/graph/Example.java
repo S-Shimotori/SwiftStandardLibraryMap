@@ -1,7 +1,8 @@
 package net.terminal_end.graph;
 
 
-import net.terminal_end.graph.domain.Type;
+import net.terminal_end.graph.domain.Clazz;
+import net.terminal_end.graph.service.ClazzService;
 import org.neo4j.ogm.session.Session;
 
 import java.util.Calendar;
@@ -10,14 +11,14 @@ import java.util.HashSet;
 public class Example {
 
     public static void main(String[] args) {
-        Session session = Neo4jSessionFactory.Companion.getInstance().getNeo4jSession();
 
         String testName = Calendar.getInstance().getTime().toString();
-        session.save(Type.builder()
+        Clazz clazz = Clazz.builder()
                          .name(testName)
                          .conformsToSet(new HashSet<>())
-                         .build());
+                         .build();
 
+        new ClazzService().createOrUpdate(clazz);
         System.exit(0);
     }
 }
