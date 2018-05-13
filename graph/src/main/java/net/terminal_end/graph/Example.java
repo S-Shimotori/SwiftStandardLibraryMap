@@ -14,9 +14,9 @@ public class Example {
 
         String testName = Calendar.getInstance().getTime().toString();
         Clazz clazz = Clazz.builder()
-                         .name(testName)
-                         .conformsToSet(new HashSet<>())
-                         .build();
+                           .name(testName)
+                           .conformsToSet(new HashSet<>())
+                           .build();
 
         new ClazzService().createOrUpdate(clazz);
         System.exit(0);
