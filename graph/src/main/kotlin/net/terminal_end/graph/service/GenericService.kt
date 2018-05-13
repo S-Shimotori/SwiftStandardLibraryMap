@@ -2,17 +2,17 @@ package net.terminal_end.graph.service
 
 
 import mu.KotlinLogging
-import net.terminal_end.graph.Neo4jSessionFactory
 import net.terminal_end.graph.domain.Entity
+import org.neo4j.ogm.session.Session
 
-abstract class GenericService<T: Entity>: Service<T> {
+abstract class GenericService<T: Entity>(
+    private val session: Session
+): Service<T> {
 
     companion object {
         private const val DEPTH_LIST = 0
         private const val DEPTH_ENTITY = 1
     }
-
-    private val session = Neo4jSessionFactory.default.getNeo4jSession()
 
     private val logger = KotlinLogging.logger {}
 
