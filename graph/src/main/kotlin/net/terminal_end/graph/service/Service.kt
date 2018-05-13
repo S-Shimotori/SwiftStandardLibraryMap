@@ -1,5 +1,7 @@
 package net.terminal_end.graph.service
 
+import org.neo4j.ogm.cypher.Filter
+
 
 interface Service<T> {
 
@@ -16,6 +18,13 @@ interface Service<T> {
      * @return a `T` type object or null
      */
     fun find(id: Long): T?
+
+    /**
+     * find objects with filters
+     *
+     * @return `T` type objects satisfying the filters
+     */
+    fun find(vararg filters: Filter): Iterable<T>
 
     /**
      * delete a object with id

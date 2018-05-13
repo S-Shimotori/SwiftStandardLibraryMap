@@ -3,6 +3,8 @@ package net.terminal_end.graph.service
 
 import mu.KotlinLogging
 import net.terminal_end.graph.domain.Entity
+import org.neo4j.ogm.cypher.Filter
+import org.neo4j.ogm.cypher.Filters
 import org.neo4j.ogm.session.Session
 
 abstract class GenericService<T: Entity>(
@@ -18,6 +20,10 @@ abstract class GenericService<T: Entity>(
 
     override fun find(id: Long): T? {
         return session.load(getEntityType(), id, DEPTH_ENTITY)
+    }
+
+    override fun find(vararg filters: Filter): Iterable<T> {
+        return session.loadAll(getEntityType(), Filters(filters.toList()))
     }
 
     override fun findAll(): Iterable<T> {

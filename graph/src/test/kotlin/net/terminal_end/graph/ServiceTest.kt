@@ -17,6 +17,8 @@ import org.junit.Rule
 import org.junit.Test
 import org.neo4j.harness.junit.Neo4jRule
 import org.neo4j.ogm.config.Configuration
+import org.neo4j.ogm.cypher.ComparisonOperator
+import org.neo4j.ogm.cypher.Filter
 import org.neo4j.ogm.session.Session
 import org.neo4j.ogm.session.SessionFactory
 
@@ -51,6 +53,13 @@ class ServiceTest {
         assertThat(createdClazz.name, `is`(clazzName))
         assertThat(clazzService.find(createdClazz.id)!!.name, `is`(clazzName))
         assertThat(clazzService.findAll().toList().size, `is`(1))
+
+        val foundClazzes = clazzService.find(
+            Filter("name", ComparisonOperator.EQUALS, clazzName)
+        )
+        assertThat(foundClazzes.toList().size, `is`(1))
+        assertThat(foundClazzes.first().id, `is`(createdClazz.id))
+
         clazzService.delete(createdClazz.id)
         assertThat(clazzService.findAll().toList().size, `is`(0))
     }
@@ -67,6 +76,13 @@ class ServiceTest {
         assertThat(createdEnumeration.name, `is`(enumerationName))
         assertThat(enumerationService.find(createdEnumeration.id)!!.name, `is`(enumerationName))
         assertThat(enumerationService.findAll().toList().size, `is`(1))
+
+        val foundEnumerations = enumerationService.find(
+            Filter("name", ComparisonOperator.EQUALS, enumerationName)
+        )
+        assertThat(foundEnumerations.toList().size, `is`(1))
+        assertThat(foundEnumerations.first().id, `is`(createdEnumeration.id))
+
         enumerationService.delete(createdEnumeration.id)
         assertThat(enumerationService.findAll().toList().size, `is`(0))
     }
@@ -83,6 +99,13 @@ class ServiceTest {
         assertThat(createdProtocol.name, `is`(protocolName))
         assertThat(protocolService.find(createdProtocol.id)!!.name, `is`(protocolName))
         assertThat(protocolService.findAll().toList().size, `is`(1))
+
+        val foundProtocols = protocolService.find(
+            Filter("name", ComparisonOperator.EQUALS, protocolName)
+        )
+        assertThat(foundProtocols.toList().size, `is`(1))
+        assertThat(foundProtocols.first().id, `is`(createdProtocol.id))
+
         protocolService.delete(createdProtocol.id)
         assertThat(protocolService.findAll().toList().size, `is`(0))
     }
@@ -99,6 +122,13 @@ class ServiceTest {
         assertThat(createdStructure.name, `is`(structureName))
         assertThat(structureService.find(createdStructure.id)!!.name, `is`(structureName))
         assertThat(structureService.findAll().toList().size, `is`(1))
+
+        val foundStructures = structureService.find(
+            Filter("name", ComparisonOperator.EQUALS, structureName)
+        )
+        assertThat(foundStructures.toList().size, `is`(1))
+        assertThat(foundStructures.first().id, `is`(createdStructure.id))
+
         structureService.delete(createdStructure.id)
         assertThat(structureService.findAll().toList().size, `is`(0))
     }
@@ -116,6 +146,13 @@ class ServiceTest {
         assertThat(createdTypeAlias.name, `is`(typeAliasName))
         assertThat(typeAliasService.find(createdTypeAlias.id)!!.name, `is`(typeAliasName))
         assertThat(typeAliasService.findAll().toList().size, `is`(1))
+
+        val foundTypeAliases = typeAliasService.find(
+            Filter("name", ComparisonOperator.EQUALS, typeAliasName)
+        )
+        assertThat(foundTypeAliases.toList().size, `is`(1))
+        assertThat(foundTypeAliases.first().id, `is`(createdTypeAlias.id))
+
         typeAliasService.delete(createdTypeAlias.id)
         assertThat(typeAliasService.findAll().toList().size, `is`(0))
     }
