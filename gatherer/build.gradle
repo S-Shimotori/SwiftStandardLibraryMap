@@ -22,19 +22,11 @@ dependencies {
     Map<String, String> dependencies = rootProject.ext.commonDependencies
 
     compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$rootProject.ext.kotlin_version"
-
-
-    compile dependencies.logbackClassic
     compile dependencies.kotlinLogging
-    compile 'org.projectlombok:lombok:1.16.20'
-
-    compile 'org.neo4j.driver:neo4j-java-driver:1.6.0'
-    compile 'org.neo4j:neo4j-ogm-core:3.1.0'
-    compile 'org.neo4j:neo4j-ogm-bolt-driver:3.1.0'
+    compile project(':scraper')
+    compile project(':graph')
 
     testImplementation dependencies.jUnit
-    testImplementation 'org.neo4j:neo4j-ogm-test:3.1.0'
-
 }
 
 repositories {
@@ -42,13 +34,13 @@ repositories {
 }
 
 jar {
+    manifest {
+        attributes 'Main-Class': 'net.terminal_end.gatherer.ExampleKt'
+    }
+
     from {
         configurations.compile.collect {
-            if (it.name.contains('kotlin-stdlib')) {
-                []
-            } else {
-                it.isDirectory() ? it : zipTree(it)
-            }
+            it.isDirectory() ? it : zipTree(it)
         }
     }
 }

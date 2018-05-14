@@ -21,14 +21,16 @@ sourceSets {
 dependencies {
     Map<String, String> dependencies = rootProject.ext.commonDependencies
 
-    implementation 'com.squareup.okhttp3:okhttp:3.10.0'
-    implementation 'com.nytimes.android:store-kotlin3:3.0.1'
     compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$rootProject.ext.kotlin_version"
 
-    implementation 'org.jsoup:jsoup:1.11.3'
 
-    implementation dependencies.kotlinLogging
-    implementation dependencies.logbackClassic
+    compile 'com.squareup.okhttp3:okhttp:3.10.0'
+    compile 'com.nytimes.android:store-kotlin3:3.0.1'
+
+    compile 'org.jsoup:jsoup:1.11.3'
+
+    compile dependencies.kotlinLogging
+    compile dependencies.logbackClassic
 
     testImplementation dependencies.jUnit
     testImplementation 'com.squareup.okhttp:mockwebserver:2.7.5'
@@ -36,4 +38,16 @@ dependencies {
 
 repositories {
     jcenter()
+}
+
+jar {
+    from {
+        configurations.compile.collect {
+            if (it.name.contains('kotlin-stdlib')) {
+                []
+            } else {
+                it.isDirectory() ? it : zipTree(it)
+            }
+        }
+    }
 }
