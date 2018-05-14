@@ -10,6 +10,9 @@ buildscript {
     }
 }
 
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
 sourceSets {
     main.java.srcDirs += 'src/main/kotlin'
     test.java.srcDirs += 'src/test/kotlin'
@@ -21,6 +24,7 @@ dependencies {
     implementation dependencies.logbackClassic
     implementation dependencies.kotlinLogging
     implementation 'org.projectlombok:lombok:1.16.20'
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$rootProject.ext.kotlin_version"
 
     implementation 'org.neo4j.driver:neo4j-java-driver:1.6.0'
     implementation 'org.neo4j:neo4j-ogm-core:3.1.0'
